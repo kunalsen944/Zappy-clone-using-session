@@ -1,0 +1,64 @@
+{%extends 'zappyapp/base.html'%}
+{%block products%}
+{%if products%}
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Welcome to the
+World of Zappy</h1>
+    <p class="lead text-muted">Where life is full of happiness
+Or as we say ‘Zappyness’</p>
+    <p>
+      <a href="{% url 'zappyapp:readytoeat'%}" class="btn btn-primary my-2">Ready To Eat Foods</a>
+      <a href="{% url 'zappyapp:readytocook'%}" class="btn btn-secondary my-2">Ready To Cook Foods</a>
+    </p>
+  </div>
+</section>
+
+
+<div class="album py-5 bg-light">
+  <div class="container">
+<h1>Latest items</h1>
+<hr>
+    <div class="row">
+      {%for i in products%}
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <a href="details/{{i.id}}"><img class="card-img-top" height="225" src="{{i.image.url}}" alt="Card image cap"></a>
+          <div class="card-body">
+            <p class="card-text">{{i.pname}}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn btn-outline-secondary btn-sm">Add to Cart</button>&nbsp&nbsp
+                <button type="button" class="btn btn btn-outline-secondary btn-sm">Add to Wishlist</button>
+              </div>
+              <h5 class="text-muted"><i class="fa fa-rupee">{{i.price}}</i></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+  </div>
+</div>
+{%else%}
+<div class="album py-5 bg-light" id="nop">
+  <div class="container text-center">
+<h1>No Products To Display</h1>
+
+</div>
+</div>
+{%endif%}
+{%endblock products%}
+
+{%block footer%}
+{%if products%}
+<footer class="footer">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <div class="copy-footer container-fluid text-center">Copyright &reg; 2015 Zappyfoods.in All rights reserved.<br> Developed and Powered by <a target="_blank" href="http://www.systango.com/">Systango.com</a></div>
+  </div>
+</footer>
+{%endif%}
+{%endblock footer%}

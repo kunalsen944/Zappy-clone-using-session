@@ -1,0 +1,21 @@
+{%extends 'zappyapp/base.html'%}
+{%load crispy_forms_tags%}
+{%block products%}
+
+<div class="container">
+  <br><br><br>
+    <div class="content-section" >
+  <form method="post">
+    {%csrf_token%}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Registration</legend>
+        {{sform|crispy}}
+    </fieldset>
+<div class="form-group">
+  <button type="submit" class="btn btn-outline-info">Sign Up</button>
+</div>
+  </form>
+</div>
+</div>
+
+{%endblock products%}

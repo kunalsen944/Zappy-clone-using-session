@@ -1,0 +1,30 @@
+{%extends 'zappyapp/base.html'%}
+{%block products%}
+<div class="container">
+      <div class="row">
+        <div class="col-md-12 blog-main">
+          <div class="blog-post">
+            <br><br>
+            <h1 class="blog-post-title">{{products.pname}}</h1>
+            <hr>
+          </div>
+           <img class="img-fluid" width="1024" height="768" src="{{products.image.url}}" alt="">
+           <hr>
+          <form class="form-signin">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              &nbsp
+              <button type="button" class="btn btn btn-outline-secondary btn-sm">Add to Cart</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              <button type="button" class="btn btn btn-outline-secondary btn-sm">Add to Wishlist</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              <h4 class="text-muted"><i class="fa fa-rupee">{{products.price}}</i></h4>
+            </div>
+          </div>
+        </form>
+        <hr>
+        <p class="blog-post-title">{{products.description}}</p>
+        </div>
+      </div>
+    </div>
+
+
+{%endblock products%}

@@ -1,0 +1,13 @@
+{%extends 'zappyapp/base.html'%}
+{%block products%}
+<div class="album py-5 bg-light">
+  <div class="container">
+<h1>Cart</h1>
+{%if val%}
+{%for i in val%}
+<h4>{{i}}</h4>
+{%endfor%}
+{%endif%}
+</div>
+</div>
+{%endblock products%}

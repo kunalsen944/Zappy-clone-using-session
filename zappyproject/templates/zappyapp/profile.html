@@ -1,0 +1,25 @@
+{%extends 'zappyapp/base.html'%}
+{%load crispy_forms_tags%}
+{%block products%}
+<br><br>
+<main role="main" class="container">
+<div class="row">
+        <div class="col-md-8">
+          <div class="card" style="width: 50%;">
+            <img class="card-img-top" src="{{ user.customer.images.url }}" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title">{{ user.username }}</h3>
+              <p class="card-text">{{ user.customer.mobile }}</p>
+              <p class="card-text">{{ user.customer.cust_address }}</p>
+              <a href="{%url 'zappyapp:uprofile'%}" class="btn btn-primary">Update Profile</a>
+            </div>
+          </div>
+
+  </div>
+
+  <div class="col-md-4">
+
+       </div>
+</div>
+</main>
+{%endblock products%}

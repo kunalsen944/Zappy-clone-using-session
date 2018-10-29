@@ -1,0 +1,36 @@
+{%extends 'zappyapp/base.html'%}
+{%load crispy_forms_tags%}
+{%block products%}
+<br><br>
+<main role="main" class="container">
+<div class="row">
+        <div class="col-md-8">
+  <div class="content-section">
+       <div class="media">
+         <img class="rounded-circle account-img" src="{{ user.customer.images.url }}">
+
+       </div>
+       <div class="media-body">
+         <h2 class="account-heading">{{ user.username }}</h2>
+         <p class="text-secondary">{{ user.customer.mobile }}</p>
+         <p class="text-secondary">{{ user.customer.cust_address }}</p>
+       </div>
+       <br>
+       <form method="POST" enctype="multipart/form-data">
+           {% csrf_token %}
+           <fieldset class="form-group">
+               <legend class="border-bottom mb-4">Profile Info</legend>
+               {{ cu_form|crispy }}
+           </fieldset>
+           <div class="form-group">
+               <button class="btn btn-outline-info" type="submit">Update</button>
+           </div>
+       </form>
+     </div>
+  </div>
+  <div class="col-md-4">
+
+       </div>
+</div>
+</main>
+{%endblock products%}
